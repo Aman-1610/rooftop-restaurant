@@ -1,21 +1,35 @@
 /* Mobile-responsive table styles for admin panel */
 
 /* Make tables scroll horizontally on mobile */
-@layer utilities {
-    .table-container {
-        @apply overflow-x-auto -mx-4 sm:mx-0;
-    }
+.table-container {
+    overflow-x: auto;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
 
-    .table-container table {
-        @apply min-w-full;
+@media (min-width: 640px) {
+    .table-container {
+        margin-left: 0;
+        margin-right: 0;
     }
+}
+
+.table-container table {
+    min-width: 100%;
 }
 
 /* FIX: Ensure all inputs in admin panel have dark text */
 .admin-layout input,
 .admin-layout textarea,
 .admin-layout select {
-    @apply text-slate-900 placeholder:text-slate-400 !important;
+    color: #0f172a !important;
+    /* slate-900 */
+}
+
+.admin-layout input::placeholder,
+.admin-layout textarea::placeholder {
+    color: #94a3b8 !important;
+    /* slate-400 */
 }
 
 /* Improve form layouts on mobile */
@@ -23,16 +37,16 @@
 
     /* Stack form inputs vertically */
     .admin-form-row {
-        @apply flex-col !important;
+        flex-direction: column !important;
     }
 
     /* Full width buttons on mobile */
     .admin-button {
-        @apply w-full !important;
+        width: 100% !important;
     }
 
     /* Reduce padding in cards */
     .admin-card {
-        @apply p-4 !important;
+        padding: 1rem !important;
     }
 }
