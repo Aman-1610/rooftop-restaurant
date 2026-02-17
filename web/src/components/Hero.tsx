@@ -1,0 +1,72 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Utensils, Calendar } from "lucide-react";
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+
+export default function Hero() {
+    const { t } = useLanguage();
+
+    return (
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+            {/* ... */}
+
+            {/* Hero Content */}
+            <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mt-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <p className="text-amber-400 font-serif text-xl md:text-2xl mb-4 tracking-widest uppercase">
+                        {t('hero_subtitle')}
+                    </p>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-serif mb-6 leading-tight text-white drop-shadow-2xl">
+                        {t('hero_title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">{t('hero_title').split(' ').slice(-1)}</span>
+                    </h1>
+                    <p className="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                        {t('footer_desc')}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    className="flex flex-col sm:flex-row gap-6 justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                    <Link href="/reservations" className="group relative px-8 py-4 bg-amber-500 text-slate-900 font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_20px_rgba(251,191,36,0.5)]">
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                            <Calendar size={20} />
+                            {t('cta_book')}
+                        </span>
+                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                    </Link>
+
+                    <Link href="/menu" className="group px-8 py-4 border border-slate-400 text-slate-100 font-semibold rounded-full hover:border-amber-400 hover:text-amber-400 transition-all hover:bg-slate-900/50 backdrop-blur-sm flex items-center justify-center gap-2">
+                        <Utensils size={20} />
+                        {t('cta_menu')}
+                    </Link>
+
+                    <a href="tel:+911234567890" className="group px-8 py-4 bg-slate-800 text-slate-200 font-semibold rounded-full hover:bg-slate-700 transition-all flex items-center justify-center gap-2 border border-slate-700 hover:border-slate-500">
+                        <span>📞</span>
+                        Call Now
+                    </a>
+                </motion.div>
+            </div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-slate-400"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+            >
+                <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center pt-2">
+                    <div className="w-1 h-3 bg-amber-500 rounded-full" />
+                </div>
+            </motion.div>
+        </section>
+    );
+}
