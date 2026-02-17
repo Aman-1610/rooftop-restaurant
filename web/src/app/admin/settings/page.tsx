@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Save, Store, Shield, Bell, MapPin, Globe, Share2 } from "lucide-react";
+import { Save, Store, Shield, Bell, MapPin, Globe, Share2, LayoutTemplate } from "lucide-react";
 import { toast } from "sonner";
 import { fetchSettings, updateSettings } from "@/services/settingsService";
 
@@ -23,7 +23,12 @@ export default function AdminSettingsPage() {
         deliveryFee: 50,
         mapLink: "",
         instagram: "",
-        facebook: ""
+        facebook: "",
+        heroTitle: "",
+        heroSubtitle: "",
+        heroDescription: "",
+        heroCtaText: "",
+        heroImage: ""
     });
 
     useEffect(() => {
@@ -46,7 +51,12 @@ export default function AdminSettingsPage() {
                         deliveryFee: data.delivery_fee || 50,
                         mapLink: data.google_maps_link || "",
                         instagram: data.social_instagram || "",
-                        facebook: data.social_facebook || ""
+                        facebook: data.social_facebook || "",
+                        heroTitle: data.hero_title || "",
+                        heroSubtitle: data.hero_subtitle || "",
+                        heroDescription: data.hero_description || "",
+                        heroCtaText: data.hero_cta_text || "",
+                        heroImage: data.hero_image || ""
                     });
                 } else {
                     setError("Settings not initialized. Please ensure the 'settings' table exists and has a row.");
@@ -89,7 +99,12 @@ export default function AdminSettingsPage() {
             notifications_enabled: formData.notifications,
             google_maps_link: formData.mapLink,
             social_instagram: formData.instagram,
-            social_facebook: formData.facebook
+            social_facebook: formData.facebook,
+            hero_title: formData.heroTitle,
+            hero_subtitle: formData.heroSubtitle,
+            hero_description: formData.heroDescription,
+            hero_cta_text: formData.heroCtaText,
+            hero_image: formData.heroImage
         };
 
         const { success, error } = await updateSettings(payload);
@@ -165,6 +180,74 @@ export default function AdminSettingsPage() {
                                 value={formData.openingHours || ""}
                                 onChange={handleChange}
                                 placeholder="e.g. Daily: 4 PM - 11 PM"
+                                className="w-full px-4 py-3 bg-slate-50 text-slate-900 rounded-xl border border-slate-200 focus:border-amber-500 outline-none transition-colors"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Hero Section */}
+                <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="p-2 bg-orange-100 rounded-lg text-orange-600">
+                            <LayoutTemplate size={24} />
+                        </div>
+                        <h2 className="text-xl font-bold text-slate-800">Home Page Hero</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="md:col-span-2">
+                            <label className="block text-slate-500 text-sm font-bold mb-2">Hero Title</label>
+                            <input
+                                type="text"
+                                name="heroTitle"
+                                value={formData.heroTitle || ""}
+                                onChange={handleChange}
+                                placeholder="Main headline (e.g. Experience Dining at New Heights)"
+                                className="w-full px-4 py-3 bg-slate-50 text-slate-900 rounded-xl border border-slate-200 focus:border-amber-500 outline-none transition-colors"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-slate-500 text-sm font-bold mb-2">Subtitle</label>
+                            <input
+                                type="text"
+                                name="heroSubtitle"
+                                value={formData.heroSubtitle || ""}
+                                onChange={handleChange}
+                                placeholder="Small text above title"
+                                className="w-full px-4 py-3 bg-slate-50 text-slate-900 rounded-xl border border-slate-200 focus:border-amber-500 outline-none transition-colors"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-slate-500 text-sm font-bold mb-2">CTA Button Text</label>
+                            <input
+                                type="text"
+                                name="heroCtaText"
+                                value={formData.heroCtaText || ""}
+                                onChange={handleChange}
+                                placeholder="Button Label (e.g. Book A Table)"
+                                className="w-full px-4 py-3 bg-slate-50 text-slate-900 rounded-xl border border-slate-200 focus:border-amber-500 outline-none transition-colors"
+                            />
+                        </div>
+                        <div className="md:col-span-2">
+                            <label className="block text-slate-500 text-sm font-bold mb-2">Description</label>
+                            <input
+                                type="text"
+                                name="heroDescription"
+                                value={formData.heroDescription || ""}
+                                onChange={handleChange}
+                                placeholder="Short paragraph below title"
+                                className="w-full px-4 py-3 bg-slate-50 text-slate-900 rounded-xl border border-slate-200 focus:border-amber-500 outline-none transition-colors"
+                            />
+                        </div>
+                        <div className="md:col-span-2">
+                            <label className="block text-slate-500 text-sm font-bold mb-2">Background Image URL</label>
+                            <input
+                                type="text"
+                                name="heroImage"
+                                value={formData.heroImage || ""}
+                                onChange={handleChange}
+                                placeholder="https://..."
                                 className="w-full px-4 py-3 bg-slate-50 text-slate-900 rounded-xl border border-slate-200 focus:border-amber-500 outline-none transition-colors"
                             />
                         </div>

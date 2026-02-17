@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { LayoutDashboard, Utensils, Calendar, Settings, LogOut, ShoppingCart, ChefHat, MessageSquare, QrCode, Users, Image as ImageIcon, Star, Menu, X } from "lucide-react";
+import { LayoutDashboard, Utensils, Calendar, Settings, LogOut, ShoppingCart, ChefHat, MessageSquare, QrCode, Users, Image as ImageIcon, Star, Menu, X, Sparkles } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
@@ -28,6 +28,7 @@ export default function AdminSidebar() {
         { name: "Kitchen Display", href: "/admin/kitchen", icon: ChefHat },
         { name: "QR Codes", href: "/admin/qr-codes", icon: QrCode },
         { name: "Menu Manager", href: "/admin/menu", icon: Utensils },
+        { name: "Manage Features", href: "/admin/features", icon: Sparkles },
         { name: "Manage Gallery", href: "/admin/gallery", icon: ImageIcon },
         { name: "Testimonials", href: "/admin/testimonials", icon: Star },
         { name: "Reservations", href: "/admin/reservations", icon: Calendar },

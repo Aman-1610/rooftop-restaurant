@@ -15,6 +15,11 @@ export interface Settings {
     social_instagram: string;
     social_facebook: string;
     google_maps_link: string;
+    hero_title: string;
+    hero_subtitle: string;
+    hero_description: string;
+    hero_cta_text: string;
+    hero_image: string;
 }
 
 export const fetchSettings = async () => {
