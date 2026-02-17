@@ -85,10 +85,12 @@ export default function AdminLayout({
     return (
         <div className="flex bg-slate-100 min-h-screen">
             <Toaster position="top-right" richColors />
-            <div className="w-64 flex-shrink-0 fixed h-full z-10">
+            {/* Sidebar - hidden on mobile by default, shown via hamburger */}
+            <div className="lg:w-64 lg:flex-shrink-0 lg:fixed lg:h-full lg:z-10">
                 <AdminSidebar />
             </div>
-            <main className="flex-1 p-8 ml-64 overflow-x-hidden min-h-screen">
+            {/* Main content - full width on mobile, offset on desktop */}
+            <main className="flex-1 p-4 sm:p-6 lg:p-8 lg:ml-64 overflow-x-hidden min-h-screen w-full">
                 {children}
             </main>
         </div>

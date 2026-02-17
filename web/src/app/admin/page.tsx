@@ -71,33 +71,33 @@ export default function AdminDashboard() {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold text-slate-800 mb-8">Dashboard Overview</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-6 sm:mb-8">Dashboard Overview</h1>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 {statCards.map((stat, idx) => (
                     <motion.div
                         key={idx}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="p-6 bg-white rounded-xl shadow-sm border border-slate-200 flex items-center gap-4 hover:shadow-md transition-shadow"
+                        className="p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200 flex items-center gap-3 sm:gap-4 hover:shadow-md transition-shadow"
                     >
-                        <div className={`p-4 rounded-full ${stat.color}`}>
-                            <stat.icon size={24} />
+                        <div className={`p-3 sm:p-4 rounded-full ${stat.color}`}>
+                            <stat.icon size={20} className="sm:w-6 sm:h-6" />
                         </div>
                         <div>
-                            <p className="text-sm text-slate-500 font-medium">{stat.label}</p>
-                            <h3 className="text-2xl font-bold text-slate-800">{stat.value}</h3>
+                            <p className="text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</p>
+                            <h3 className="text-lg sm:text-2xl font-bold text-slate-800">{stat.value}</h3>
                         </div>
                     </motion.div>
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                 {/* Recent Orders */}
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                    <div className="flex justify-between items-center mb-6">
+                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div className="flex justify-between items-center mb-4 sm:mb-6">
                         <h2 className="text-xl font-bold text-slate-800">Recent Orders</h2>
                         <Link href="/admin/orders" className="text-sm text-blue-600 font-bold hover:underline">View All</Link>
                     </div>

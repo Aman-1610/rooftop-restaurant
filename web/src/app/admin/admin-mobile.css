@@ -1,0 +1,31 @@
+/* Mobile-responsive table styles for admin panel */
+
+/* Make tables scroll horizontally on mobile */
+@layer utilities {
+    .table-container {
+        @apply overflow-x-auto -mx-4 sm:mx-0;
+    }
+
+    .table-container table {
+        @apply min-w-full;
+    }
+}
+
+/* Improve form layouts on mobile */
+@media (max-width: 640px) {
+
+    /* Stack form inputs vertically */
+    .admin-form-row {
+        @apply flex-col !important;
+    }
+
+    /* Full width buttons on mobile */
+    .admin-button {
+        @apply w-full !important;
+    }
+
+    /* Reduce padding in cards */
+    .admin-card {
+        @apply p-4 !important;
+    }
+}
