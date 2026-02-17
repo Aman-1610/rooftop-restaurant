@@ -73,7 +73,7 @@ export default function ManageTestimonials() {
                                 required
                                 value={newReview.name}
                                 onChange={e => setNewReview({ ...newReview, name: e.target.value })}
-                                className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors"
+                                className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors text-slate-900"
                                 placeholder="John Doe"
                             />
                         </div>
@@ -83,7 +83,7 @@ export default function ManageTestimonials() {
                                 required
                                 value={newReview.text}
                                 onChange={e => setNewReview({ ...newReview, text: e.target.value })}
-                                className="w-full px-3 py-2 bg-slate-50 border rounded-lg h-24 focus:outline-none focus:border-amber-500 transition-colors"
+                                className="w-full px-3 py-2 bg-slate-50 border rounded-lg h-24 focus:outline-none focus:border-amber-500 transition-colors text-slate-900 textarea-dark"
                                 placeholder="Great food..."
                             />
                         </div>
@@ -93,9 +93,9 @@ export default function ManageTestimonials() {
                                 <select
                                     value={newReview.rating}
                                     onChange={e => setNewReview({ ...newReview, rating: Number(e.target.value) })}
-                                    className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors"
+                                    className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors text-slate-900 bg-white"
                                 >
-                                    {[5, 4, 3, 2, 1].map(r => <option key={r} value={r}>{r} Stars</option>)}
+                                    {[5, 4, 3, 2, 1].map(r => <option key={r} value={r} className="text-slate-900">{r} Stars</option>)}
                                 </select>
                             </div>
                             <div className="flex-1">
@@ -103,7 +103,7 @@ export default function ManageTestimonials() {
                                 <input
                                     value={newReview.source}
                                     onChange={e => setNewReview({ ...newReview, source: e.target.value })}
-                                    className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors"
+                                    className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors text-slate-900"
                                     placeholder="Google"
                                 />
                             </div>

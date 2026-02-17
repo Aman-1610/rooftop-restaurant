@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { Toaster, toast } from "sonner";
+import "./admin-mobile.css";
 
 export default function AdminLayout({
     children,
@@ -83,7 +84,7 @@ export default function AdminLayout({
     }
 
     return (
-        <div className="flex bg-slate-100 min-h-screen">
+        <div className="flex bg-slate-100 text-slate-900 min-h-screen admin-layout">
             <Toaster position="top-right" richColors />
             {/* Sidebar - hidden on mobile by default, shown via hamburger */}
             <div className="lg:w-64 lg:flex-shrink-0 lg:fixed lg:h-full lg:z-10">

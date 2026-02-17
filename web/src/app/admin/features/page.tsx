@@ -117,7 +117,7 @@ export default function ManageFeatures() {
                                 required
                                 value={title}
                                 onChange={e => setTitle(e.target.value)}
-                                className="w-full px-4 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500"
+                                className="w-full px-4 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 text-slate-900"
                                 placeholder="e.g. Free Wifi"
                             />
                         </div>
@@ -128,7 +128,7 @@ export default function ManageFeatures() {
                                 required
                                 value={order}
                                 onChange={e => setOrder(Number(e.target.value))}
-                                className="w-full px-4 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500"
+                                className="w-full px-4 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 text-slate-900"
                             />
                         </div>
                         <div className="md:col-span-2">
@@ -137,7 +137,7 @@ export default function ManageFeatures() {
                                 required
                                 value={description}
                                 onChange={e => setDescription(e.target.value)}
-                                className="w-full px-4 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 h-24 resize-none"
+                                className="w-full px-4 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 h-24 resize-none text-slate-900"
                                 placeholder="Brief description of the feature..."
                             />
                         </div>

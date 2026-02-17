@@ -11,6 +11,13 @@
     }
 }
 
+/* FIX: Ensure all inputs in admin panel have dark text */
+.admin-layout input,
+.admin-layout textarea,
+.admin-layout select {
+    @apply text-slate-900 placeholder:text-slate-400 !important;
+}
+
 /* Improve form layouts on mobile */
 @media (max-width: 640px) {
 

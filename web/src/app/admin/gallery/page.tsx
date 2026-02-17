@@ -69,7 +69,7 @@ export default function ManageGallery() {
                             type="url"
                             value={newImage.url}
                             onChange={e => setNewImage({ ...newImage, url: e.target.value })}
-                            className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors text-slate-900"
                             placeholder="https://example.com/image.jpg"
                         />
                     </div>
@@ -78,7 +78,7 @@ export default function ManageGallery() {
                         <input
                             value={newImage.caption}
                             onChange={e => setNewImage({ ...newImage, caption: e.target.value })}
-                            className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 border rounded-lg focus:outline-none focus:border-amber-500 transition-colors text-slate-900"
                             placeholder="Rooftop View at sunset"
                         />
                     </div>
